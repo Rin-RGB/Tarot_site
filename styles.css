@@ -99,8 +99,7 @@ body {
     border-width: 3px;
 }
 
-main,
-.my-header {
+main{
     max-width: 1200px;
     width: 90%;
     padding-inline: var(--space-5);
@@ -149,7 +148,6 @@ textarea,
 button {
     color: var(--color-fg);
     width: 100%;
-    max-width: 480px;
     padding: .5rem .75rem;
     border: 1px solid var(--color-muted);
     border-radius: var(--radius);
