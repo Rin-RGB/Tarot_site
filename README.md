@@ -2,4 +2,4 @@
 ## Проект
 Каркас будущего веб-приложения
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://rin-rgb.github.io/TarotVibe/)
+- [Публичная страница на GitHub Pages](https://rin-rgb.github.io/Tarot_sibe/)
