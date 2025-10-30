@@ -2,4 +2,4 @@
 ## Проект
 Каркас будущего веб-приложения
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://rin-rgb.github.io/My-amazing-project/)
+- [Публичная страница на GitHub Pages](https://rin-rgb.github.io/TarotVibe/)
