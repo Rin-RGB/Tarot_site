@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - TarotVibe</title>
+    <meta name="description" content="Свяжитесь с нами для консультации или вопросов">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../main.js" defer></script>
+</head>
+
+<body>
+    <header class="bg-primary-color text-light pt-3 mb-2 mb-xl-3">
+        <div class="main-header container mb-3">
+            <div class="row align-items-center">
+                <div class="col d-flex align-items-center">
+                    <div class="header_logo col-auto me-3">
+                        <h2><a href="../index.html">
+                                <img src="../assets/logo.png" alt="Логотип">
+                            </a></h2>
+                    </div>
+                    <div class="col-auto">
+                        <h1 class="my-1 h4">TarotVibe</h1>
+                        <p class="my-1 fst-italic text-muted">Найди тузы в рукаве</p>
+                    </div>
+                </div>
+
+                <div class="col-auto m-0">
+                    <button class="theme-toggle" type="button" aria-pressed="false">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <script defer>
+                        const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+                        const icon = btn.querySelector('.theme-icon');
+                        const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+
+                        function updateIcon(isDark) {
+                            icon.textContent = isDark ? '☀️' : '🌙';
+                        }
+                        if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) && prefersDark)) {
+                            document.body.classList.add('theme-dark');
+                            btn?.setAttribute('aria-pressed', 'true');
+                            icon.textContent = '☀️';
+                        }
+
+                        btn?.addEventListener('click', () => {
+                            const isDark = document.body.classList.toggle('theme-dark');
+                            btn.setAttribute('aria-pressed', String(isDark));
+                            localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+                            updateIcon(isDark);
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation navbar navbar-expand-lg bg-item">
+            <div class="container">
+                <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">
+                                <i class="bi bi-suit-club me-1"></i>Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">
+                                <i class="bi bi-suit-diamond me-1"></i>О&nbsp;нас</a></li>
+                        <li class="nav-item"><a class="nav-link" href="goods.html">
+                                <i class="bi bi-suit-heart me-1"></i>Товары</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contacts.html">
+                                <i class="bi bi-suit-spade me-1"></i>Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-3">
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+            </ol>
+        </nav>
+
+        <!-- Заголовок страницы -->
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="display-5 fw-bold">Наши контакты</h1>
+                <p class="lead text-muted-color">Свяжитесь с нами для консультации, заказа или просто чтобы задать
+                    вопрос</p>
+            </div>
+        </div>
+
+        <!-- Контактная информация -->
+        <div class="row g-4">
+            <!-- Телефон -->
+            <div class="col-12 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header">
+                        <h3><i class="bi bi-telephone me-2"></i>Телефон для связи</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-phone text-purple fs-4 me-3"></i>
+                            <div>
+                                <h4 class="mb-1">+7 (906) 338-73-01</h4>
+                                <p class="text-muted-color mb-0">Доступен с 10:00 до 22:00</p>
+                            </div>
+                        </div>
+                        <button class="btn link-btn w-100" id="openDialog">
+                            <i class="bi bi-chat-dots me-2"></i>Написать нам
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Телеграм -->
+            <div class="col-12 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header">
+                        <h3><i class="bi bi-send me-2"></i>Телеграм канал</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-telegram text-purple fs-4 me-3"></i>
+                            <div>
+                                <h4 class="mb-1">@wanderersfire</h4>
+                                <p class="text-muted-color mb-0">Жизнь и работы мастера</p>
+                            </div>
+                        </div>
+                        <a href="https://t.me/wanderersfire" class="btn link-btn w-100" target="_blank">
+                            <i class="bi bi-box-arrow-up-right me-2"></i>Перейти в канал
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Дополнительная информация -->
+        <section class="mt-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3><i class="bi bi-info-circle me-2"></i>Важная информация</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-clock text-purple me-3 mt-1"></i>
+                                <div>
+                                    <h5>Время работы</h5>
+                                    <p class="text-muted-color mb-0">Ежедневно с 10:00 до 22:00<br>Консультации по
+                                        предварительной записи</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-shield-check text-purple me-3 mt-1"></i>
+                                <div>
+                                    <h5>Конфиденциальность</h5>
+                                    <p class="text-muted-color mb-0">Все ваши вопросы и данные остаются строго между
+                                        нами и вселенной</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-geo-alt text-purple me-3 mt-1"></i>
+                                <div>
+                                    <h5>Формат работы</h5>
+                                    <p class="text-muted-color mb-0">Онлайн консультации по видеосвязи или через
+                                        мессенджеры</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="d-flex">
+                                <i class="bi bi-lightning-charge text-purple me-3 mt-1"></i>
+                                <div>
+                                    <h5>Срочные вопросы</h5>
+                                    <p class="text-muted-color mb-0">Для экстренных случаев доступен срочный расклад
+                                        (+50% к стоимости)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="contactDialog" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle" class="dialog-title">Задать вопрос или сделать заказ</h2>
+        <form id="contactForm" method="dialog" novalidate>
+            <label for="name">Имя</label>
+            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phoneHelp"
+                placeholder="+7 (___) ___-__-__" required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+            <small id="phoneHelp" class="small-text">Формат: +7 (900) 000-00-00</small>
+
+            <label for="date">Дата</label>
+            <input id="date" name="date" type="date">
+
+            <label for="topic">Тема обращения</label>
+            <select id="topic" name="topic" required>
+                <option value="">Выберите тему</option>
+                <option>Вопрос</option>
+                <option>Порча</option>
+                <option>Расклад</option>
+                <option>Индивидуальный заказ</option>
+            </select>
+            <label for="message">Уточните запрос</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <div class="form-actions">
+                <button type="button" id="closeDialog">Закрыть</button>
+                <button type="submit">Отправить</button>
+            </div>
+        </form>
+    </dialog>
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="d-flex align-items-center gap-2">
+            <span class="ms-2">&copy; 2025 TarotVibe</span>
+            <span class="mx-auto">Компания не несёт ответственности за действия клиентов вне консультаций</span>
+            <span class="ms-auto me-2"><a href="pages/contacts.html">Контакты</a></span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

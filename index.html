@@ -1,103 +1,408 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная - Гадания с призраками</title>
     <meta name="description" content="Краткое о моём сайте">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header class="site-header">
-        <div class="top-bar"> 
-            <h2><a class="site-header_logo" href="index.html">
-                <img src="assets/logo.png" alt="Логотип">
-            </a></h2>
-            <button class="theme-toggle" type="button" aria-pressed="false">
-                <span class="theme-icon">🌙</span>
-            </button>
-            <script defer>
-                const KEY='theme', btn=document.querySelector('.theme-toggle');
-                const icon = btn.querySelector('.theme-icon');
-                const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
-                
-                function updateIcon(isDark) {
-                    icon.textContent = isDark ? '☀️' : '🌙';
-                }
-                if(localStorage.getItem(KEY)==='dark' || (!localStorage.getItem(KEY) && prefersDark)){
-                    document.body.classList.add('theme-dark');
-                    btn?.setAttribute('aria-pressed','true');
-                    icon.textContent = '☀️';
-                }
-                
-                btn?.addEventListener('click', ()=>{
-                    const isDark=document.body.classList.toggle('theme-dark');
-                    btn.setAttribute('aria-pressed', String(isDark));
-                    localStorage.setItem(KEY, isDark ? 'dark' : 'light');
-                    updateIcon(isDark);
-                });
-            </script>
+    <header class="bg-primary-color text-light pt-3 mb-2 mb-xl-3">
+        <div class="main-header container mb-3">
+            <div class="row align-items-center">
+                <div class="col d-flex align-items-center">
+                    <div class="header_logo col-auto me-3">
+                        <h2><a href="index.html">
+                                <img src="assets/logo.png" alt="Логотип">
+                            </a></h2>
+                    </div>
+                    <div class="col-auto">
+                        <h1 class="my-1 h4">TarotVibe</h1>
+                        <p class="my-1 fst-italic text-muted">Найди тузы в рукаве</p>
+                    </div>
+                </div>
+
+
+                <div class="col-auto m-0">
+                    <button class="theme-toggle" type="button" aria-pressed="false">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <script defer>
+                        const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+                        const icon = btn.querySelector('.theme-icon');
+                        const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+
+                        function updateIcon(isDark) {
+                            icon.textContent = isDark ? '☀️' : '🌙';
+                        }
+                        if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) && prefersDark)) {
+                            document.body.classList.add('theme-dark');
+                            btn?.setAttribute('aria-pressed', 'true');
+                            icon.textContent = '☀️';
+                        }
+
+                        btn?.addEventListener('click', () => {
+                            const isDark = document.body.classList.toggle('theme-dark');
+                            btn.setAttribute('aria-pressed', String(isDark));
+                            localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+                            updateIcon(isDark);
+                        });
+                    </script>
+                </div>
+            </div>
         </div>
-        <nav class="site-nav" aria-label="Навигация">
-        <ul class="site-nav_list">
-                <li class="site-nav_item"><a class="site-nav_link" href="index.html">Главная</a></li>
-                <li class="site-nav_item"><a class="site-nav_link" href="about.html">О нас</a></li>
-                <li class="site-nav_item"><a class="site-nav_link" href="contacts.html">Контакты</a></li>
-            </ul>
+        <nav class="navigation navbar navbar-expand-lg bg-item">
+            <div class="container">
+                <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">
+                                <i class="bi bi-suit-club me-1"></i>Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/about.html">
+                                <i class="bi bi-suit-diamond me-1"></i>О&nbsp;нас</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/goods.html">
+                                <i class="bi bi-suit-heart me-1"></i>Товары</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/contacts.html">
+                                <i class="bi bi-suit-spade me-1"></i>Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <h1>Добро пожаловать на лучший сайт!</h1>
-        <section class="hero">
-            <picture>
-                <source type="image/avif" srcset="img/card.avif">
-                <source type="image/webp" srcset="img/card.webp">
-                <img src="img/card.jpg" alt="Процесс работы наших специалистов" width="640" height="360">
-            </picture>
-            <div class="hero__content">
-                <h1>Карты Таро</h1>
-                <p>Карты, в которых Башню надо крыть Мышами</p>
+    <main class="container py-3">
+        <div class="row mb-1">
+            <div class="col">
+                <h1 class="display-5 fw-bold">Погадаем?</h1>
+                <p class="lead text-muted-color">Карты говорят, что на этой странице вы познакомитесь с TarotVibe</p>
             </div>
-        </section>        
-        <section id="services">
-            <h2>Наши услуги</h2>
-            <ul>
-                <li>"Призовём Пиковую даму"</li>
-                <li>"Изгоним Пиковую Даму"</li>
-                <li>"Наведём и снимем порчу"</li>
-                <li>"Сделаем расклад на Картах Таро"</li>
-            <a href="contacts.html">Связаться с нами</a> 
-        </section>
-       
-        <section id="portfolio">
-            <h2>Портфолио</h2>
-            <p>Отзывы счастливых клиентов</p>
-            <p>Самый известный фильм о нашей компании. Основан на реальных событиях</p>
-            <!-- Вставка с Rutube; замените XXXXXXXXXXXX на ID ролика -->
-            <div class="media">
-                <iframe width="720" height="405" src="https://rutube.ru/play/embed/351a513f33477a16eca825d44c675fa9/" style="border: none;" 
-            allow="clipboard-write; autoplay" 
-            allowfullscreen>
-                    title="Самый правоподобный фильм о нашей работе:" 
-                    allow="autoplay; encrypted-media; picture-in-picture; web-share"
-                    allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="card shadow-sm mb-2 mb-md-5">
+            <div class="card-header">
+                <h3><i class="bi bi-bookmark me-1"></i>Вводная информация</h3>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-5 order-2 order-lg-1">
+                        <div class="p-3 p-lg-4 ">
+                            <p class="mb-0 fs-6 fs-lg-5 lh-base">
+                                Таро используются для самопознания, принятия решений
+                                и получения советов, помогая прояснить текущую ситуацию
+                                и понять свои чувства. Они служат инструментом для размышления
+                                над проблемой с разных сторон, раскрытия скрытых талантов и анализа
+                                межличностных отношений. Карты рассматриваются как способ заглянуть в будущее,
+                                но также и как источник мудрости, помогающий лучше понять настоящее и прошлое.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-7 order-1 order-lg-2">
+                        <div class="text-center">
+                            <picture>
+                                <source type="image/avif" srcset="img/card.avif">
+                                <source type="image/webp" srcset="img/card.webp">
+                                <img src="img/card.jpg" alt="Процесс работы наших специалистов"
+                                    class="img-fluid rounded shadow"
+                                    style="max-height: 400px; width: auto; object-fit: cover;">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mb-2 mb-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3><i class="bi bi-magic me-1 text-type"></i>Какой вид гадания выбрать: <span
+                                class="highlight-text">
+                                на кофейной гуще или на картах таро?</span></h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <p class="fst-italic text-type">Каждый чувствует тягу к своему инструменту, но на странице мы
+                            представили
+                            сравнение в обыденных аспектах жизни от нашей команды</p>
+                        <table class="table custom-table bg-item table-hover table-bordered">
+                            <thead class="bg-primary-color">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col text-light">Кофейная гуща</th>
+                                    <th scope="col text-light">Карты Таро</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row text-light">Атмосфера</th>
+                                    <td class="text-type">Идеально после утреннего кофе</td>
+                                    <td class="text-type">Раскрываются в ночное время суток</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row text-light">Сложность</th>
+                                    <td class="text-type">Может гадать любой</td>
+                                    <td class="text-type">Требует знаний</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row text-light">Доступность</th>
+                                    <td class="text-type">Кофе можно купить где угодно</td>
+                                    <td class="text-type">Карты нужно заказывать</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row text-light">Точность</th>
+                                    <td class="text-type">Показывает то, что вы ходите видеть</td>
+                                    <td class="text-type">При достаточных знаниях точность достигает 99%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row text-light">Влияние на ауру</th>
+                                    <td class="text-type">Можно сказать, что мимо проходил</td>
+                                    <td class="text-type">Бог не простит</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contacts">
-            <h2>Контактная информация</h2>
-            <p>Наши контакты...</p>
-            <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
-        </section>        
+        <section class="mb-2 mb-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3><i class="bi bi-person-badge me-1"></i>Штат сотрудников по связи с <span
+                            class="highlight-text">иным миром:</span></h3>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row position-relative">
+                            <div class="container position-relative">
+                                <div class="row g-3" id="galleryRow">
+                                </div>
+
+                                <button
+                                    class="btn galery-btn btn-light shadow rounded-circle position-absolute start-0 top-50 translate-middle-y ms-3"
+                                    id="prevBtn" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
+                                <button
+                                    class="btn galery-btn btn-light shadow rounded-circle position-absolute end-0 top-50 translate-middle-y me-3"
+                                    id="nextBtn" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="https://web.telegram.org/a/#6875242793" class="link-btn btn">
+                                Получить пробную консультацию
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const images = ['img/img1.jpg', 'img/img2.jpg', 'img/img3.jpg',
+                    'img/img4.jpg', 'img/img5.jpg', 'img/img6.jpg'];
+                const names = ["Привидение Боря", "Полтергейст Виктор", "Душа Олег",
+                    "Призрак Люся", "Тень Влад", "Дух Лера"];
+                let currentIndex = 0;
+
+                function showImages() {
+                    const galleryRow = document.getElementById('galleryRow');
+                    const currentCols = Array.from(galleryRow.children);
+
+                    // Прячем старые элементы
+                    currentCols.forEach(col => {
+                        col.style.opacity = '0';
+                        col.style.transform = 'scale(0.9)';
+                        col.style.transition = 'all 0.15s ease';
+                    });
+
+                    setTimeout(() => {
+                        galleryRow.innerHTML = '';
+
+                        for (let i = 0; i < 3; i++) {
+                            const imgIndex = (currentIndex + i) % images.length;
+                            const col = document.createElement('div');
+                            col.className = 'col-4';
+                            col.style.opacity = '0';
+                            col.style.transform = 'scale(1.1)';
+                            col.style.transition = 'all 0.1s ease';
+
+                            col.innerHTML = `<div>
+                <img src="${images[imgIndex]}" class="img-fluid w-100 object-fit-cover" 
+                     style="aspect-ratio: 1 / 1;" alt="Gallery image">
+                <p class="fst-italic text-center mt-2">${names[imgIndex]}</p>
+            </div>`;
+
+                            galleryRow.appendChild(col);
+
+                            // Появляем с небольшой задержкой
+                            setTimeout(() => {
+                                col.style.opacity = '1';
+                                col.style.transform = 'scale(1)';
+                            }, 100 + (i * 80));
+                        }
+                    }, 300); // Ждем пока старые скроются
+                }
+
+                document.getElementById('nextBtn').addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showImages();
+                });
+
+                document.getElementById('prevBtn').addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    showImages();
+                });
+
+                showImages();
+            </script>
+        </section>
+
+        <section class="mb-2 mb-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3><i class="bi bi-patch-question me-1"></i>Часто задаваемые <span
+                            class="highlight-text">вопросы:</span></h3>
+                </div>
+                <div class="questions">
+
+                    <!-- Вопрос 1 -->
+                    <div class="container border-1 mb-2">
+                        <button class="btn p-0 border-0 w-100 text-start" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question1" aria-expanded="false" aria-controls="question1"
+                            data-bs-parent=".questions">
+                            <h5 class="m-0"><i class="bi bi-list me-1"></i>Что делать?</h5>
+                        </button>
+                        <div class="answer collapse ps-3" id="question1" data-bs-parent=".questions">
+                            <div class="pt-2">
+                                <p class="m-0">Жить</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div class="container border-1 mb-2">
+                        <button class="btn p-0 border-0 w-100 text-start" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question2" aria-expanded="false" aria-controls="question2"
+                            data-bs-parent=".questions">
+                            <h5 class="m-0"><i class="bi bi-list me-1"></i>Когда начать?</h5>
+                        </button>
+                        <div class="answer collapse ps-3" id="question2" data-bs-parent=".questions">
+                            <div class="pt-2">
+                                <p class="m-0">Сейчас</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="container border-1 mb-2">
+                        <button class="btn p-0 border-0 w-100 text-start" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question3" aria-expanded="false" aria-controls="question3"
+                            data-bs-parent=".questions">
+                            <h5 class="m-0"><i class="bi bi-list me-1"></i>Где найти?</h5>
+                        </button>
+                        <div class="answer collapse ps-3" id="question3" data-bs-parent=".questions">
+                            <div class="pt-2">
+                                <p class="m-0">Везде</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container border-1 mb-2">
+                        <button class="btn p-0 border-0 w-100 text-start" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question4" aria-expanded="false" aria-controls="question4"
+                            data-bs-parent=".questions">
+                            <h5 class="m-0"><i class="bi bi-list me-1"></i>Почему?</h5>
+                        </button>
+                        <div class="answer collapse ps-3" id="question4" data-bs-parent=".questions">
+                            <div class="pt-2">
+                                <p class="m-0">Потому что</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container border-1 mb-2">
+                        <button class="btn p-0 border-0 w-100 text-start" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question5" aria-expanded="false" aria-controls="question5"
+                            data-bs-parent=".questions">
+                            <h5 class="m-0"><i class="bi bi-list me-1"></i>Смогу?</h5>
+                        </button>
+                        <div class="answer collapse ps-3" id="question5" data-bs-parent=".questions">
+                            <div class="pt-2">
+                                <p class="m-0">Если захочешь</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="mb-2 mb-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3><i class="bi bi-person-check-fill me-1"></i>Процент довольных пользователей</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+
+                            <div class="d-flex justify-content-between mb1">
+                                <span>Деловые консультации</span>
+                                <span class="text-type">75%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-purple" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="d-flex justify-content-between mb1">
+                                <span>Наложение порчи</span>
+                                <span class="text-type">65%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-purple" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="d-flex justify-content-between mb1">
+                                <span>Предсказания за кофе</span>
+                                <span class="text-type">100%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-purple" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Подвал сайта -->
     <footer>
-        <p>&copy; 2025 Самый лучший сайт. Все права защищены.</p>
-        <p>Телефон: +7 (123) 456-78-90</p>
+        <div class="d-flex align-items-center gap-2">
+            <span class="ms-2">&copy; 2025 TarotVibe</span>
+            <span class="mx-auto">Компания не несёт ответственности за действия клиентов вне консультаций</span>
+            <span class="ms-auto me-2"><a href="pages/contacts.html">Контакты</a></span>
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
-       

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - TarotVibe</title>
+    <meta name="description" content="Узнайте больше о нашей компании и истории">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header class="bg-primary-color text-light pt-3 mb-2 mb-xl-3">
+        <div class="main-header container mb-3">
+            <div class="row align-items-center">
+                <div class="col d-flex align-items-center">
+                    <div class="header_logo col-auto me-3">
+                        <h2><a href="../index.html">
+                                <img src="../assets/logo.png" alt="Логотип">
+                            </a></h2>
+                    </div>
+                    <div class="col-auto">
+                        <h1 class="my-1 h4">TarotVibe</h1>
+                        <p class="my-1 fst-italic text-muted">Найди тузы в рукаве</p>
+                    </div>
+                </div>
+
+                <div class="col-auto m-0">
+                    <button class="theme-toggle" type="button" aria-pressed="false">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <script defer>
+                        const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+                        const icon = btn.querySelector('.theme-icon');
+                        const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+
+                        function updateIcon(isDark) {
+                            icon.textContent = isDark ? '☀️' : '🌙';
+                        }
+                        if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) && prefersDark)) {
+                            document.body.classList.add('theme-dark');
+                            btn?.setAttribute('aria-pressed', 'true');
+                            icon.textContent = '☀️';
+                        }
+
+                        btn?.addEventListener('click', () => {
+                            const isDark = document.body.classList.toggle('theme-dark');
+                            btn.setAttribute('aria-pressed', String(isDark));
+                            localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+                            updateIcon(isDark);
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation navbar navbar-expand-lg bg-item">
+            <div class="container">
+                <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">
+                                <i class="bi bi-suit-club me-1"></i>Главная</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="about.html">
+                                <i class="bi bi-suit-diamond me-1"></i>О&nbsp;нас</a></li>
+                        <li class="nav-item"><a class="nav-link" href="goods.html">
+                                <i class="bi bi-suit-heart me-1"></i>Товары</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacts.html">
+                                <i class="bi bi-suit-spade me-1"></i>Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-3">
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">О нас</li>
+            </ol>
+        </nav>
+
+        <!-- Заголовок страницы -->
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="display-5 fw-bold">О нашей компании</h1>
+                <p class="lead text-muted-color">Знакомство с командой, которая знает о магии больше, чем о программировании</p>
+            </div>
+        </div>
+
+        <!-- Карточка с мастером -->
+        <div class="card shadow-sm mb-4 mb-md-5">
+            <div class="card-header">
+                <h3><i class="bi bi-person-badge me-1"></i>Наш главный мастер</h3>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-md-4 text-center">
+                        <div class="our-master">
+                            <picture class="our-master_portrait">
+                                <source type="image/avif" srcset="../img/self_portrait.avif">
+                                <source type="image/webp" srcset="../img/self_portrait.webp">
+                                <img src="../img/self_portrait.jpg" alt="Портрет нашего мастера" 
+                                     class="img-fluid rounded shadow">
+                            </picture>
+                            <small class="small-text mt-2">Дарья Жулева - мастер раскладов и натальной карты</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="p-3">
+                            <p class="fs-6 lh-base mb-3"> 
+                                Сочетает технический склад ума с глубокими эзотерическими знаниями.
+                            </p>
+                            <div class="d-flex justify-content-center justify-content-md-start">
+                                <a href="https://t.me/wanderersfire" class="link-btn btn">
+                                    Посмотреть на жизнь мастера
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Интересные факты -->
+        <section class="mb-4 mb-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3><i class="bi bi-stars me-1"></i>Интересные факты о нас</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="funfact-card px-2 py-2">
+                                <h4 class="funfact-title"><i class="bi bi-mortarboard me-2"></i>Образование</h4>
+                                <p class="experience-desc">Мастер обучается на программиста, чтобы скрыть истинное призвание.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="funfact-card px-2 py-2">
+                                <h4 class="funfact-title"><i class="bi bi-palette me-2"></i>Арт-Терапия</h4>
+                                <p class="experience-desc">Каждый участник команды, даже призрак Люся, имеет художественное образование.
+                                     Это позволяет дорисовать карты, когда колоды не хватает.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="funfact-card px-2 py-2">
+                                <h4 class="funfact-title"><i class="bi bi-globe me-2"></i>Натальная карта</h4>
+                                <p class="experience-desc">Исключительный астрологический центр, в котором не принижают
+                                     никакие знаки зодиака. Скорпионы тоже люди.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Специалисты -->
+        <section class="mb-4 mb-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3><i class="bi bi-shield-shaded me-1"></i>Наши специалисты по призракам и нечисти</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-8">
+                            <p class="fs-6 lh-base mb-3">
+                                Знают о том, как работает порча и не согласились показывать свои контактные данные 
+                                в открытом доступе. Работают анонимно для вашей же безопасности.
+                            </p>
+                            <p class="fst-italic text-muted-color">
+                                "Иногда лучше не знать, кто стоит за магией" - Призрак Боря
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-4 text-center">
+                            <i class="bi bi-eye-slash display-1 text-muted-color"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Дополнительная информация -->
+        <section class="mb-4 mb-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3><i class="bi bi-info-circle me-1"></i>Почему выбирают нас?</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6">
+                            <h5><i class="bi bi-check-circle text-success me-2"></i>Профессионализм</h5>
+                            <p class="text-muted-color mb-3">Все специалисты проходят строгий отбор и имеют многолетний опыт работы с потусторонними силами.</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h5><i class="bi bi-shield-check text-primary me-2"></i>Конфиденциальность</h5>
+                            <p class="text-muted-color mb-3">Ваши данные и вопросы остаются между вами и вселенной. Никаких лишних глаз.</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h5><i class="bi bi-arrow-repeat text-warning me-2"></i>Подход к каждому</h5>
+                            <p class="text-muted-color mb-3">Не важно, Скорпион вы или Телец - для нас все знаки зодиака равны и достойны внимания.</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h5><i class="bi bi-heart text-danger me-2"></i>Забота о клиентах</h5>
+                            <p class="text-muted-color mb-0">Мы не просто гадаем, мы помогаем найти ответы и обрести гармонию.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="d-flex align-items-center gap-2">
+            <span class="ms-2">&copy; 2025 TarotVibe</span>
+            <span class="mx-auto">Компания не несёт ответственности за действия клиентов вне консультаций</span>
+            <span class="ms-auto me-2"><a href="pages/contacts.html">Контакты</a></span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -41,6 +41,7 @@ form?.addEventListener('submit', (e) => {
     }
     e.preventDefault();
     document.getElementById('contactDialog')?.close('success');
+    alert(`Ваше обращение услышано!`);
     form.reset();
 });
 

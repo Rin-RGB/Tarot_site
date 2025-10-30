@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары - Гадания с призраками</title>
+    <meta name="description" content="Посмотрите на наши товары">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header class="bg-primary-color text-light pt-3 mb-2 mb-xl-3">
+        <div class="main-header container mb-3">
+            <div class="row align-items-center">
+                <div class="col d-flex align-items-center">
+                    <div class="header_logo col-auto me-3">
+                        <h2><a href="../index.html">
+                                <img src="../assets/logo.png" alt="Логотип">
+                            </a></h2>
+                    </div>
+                    <div class="col-auto">
+                        <h1 class="my-1 h4">TarotVibe</h1>
+                        <p class="my-1 fst-italic text-muted">Найди тузы в рукаве</p>
+                    </div>
+                </div>
+
+
+                <div class="col-auto m-0">
+                    <button class="theme-toggle" type="button" aria-pressed="false">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <script defer>
+                        const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+                        const icon = btn.querySelector('.theme-icon');
+                        const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+
+                        function updateIcon(isDark) {
+                            icon.textContent = isDark ? '☀️' : '🌙';
+                        }
+                        if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) && prefersDark)) {
+                            document.body.classList.add('theme-dark');
+                            btn?.setAttribute('aria-pressed', 'true');
+                            icon.textContent = '☀️';
+                        }
+
+                        btn?.addEventListener('click', () => {
+                            const isDark = document.body.classList.toggle('theme-dark');
+                            btn.setAttribute('aria-pressed', String(isDark));
+                            localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+                            updateIcon(isDark);
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation navbar navbar-expand-lg bg-item">
+            <div class="container">
+                <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">
+                                <i class="bi bi-suit-club me-1"></i>Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">
+                                <i class="bi bi-suit-diamond me-1"></i>О&nbsp;нас</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="goods.html">
+                                <i class="bi bi-suit-heart me-1"></i>Товары</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacts.html">
+                                <i class="bi bi-suit-spade me-1"></i>Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Товары</li>
+            </ol>
+        </nav>
+
+        <!-- Заголовок страницы -->
+        <div class="row mb-2">
+            <div class="col">
+                <h1 class="display-5 fw-bold text-type">Магические товары</h1>
+                <p class="lead text-muted-color">Всё для вашего духовного развития и практик</p>
+            </div>
+        </div>
+
+        <!-- Сетка товаров -->
+        <div class="row g-4 mb-4">
+            <!-- Товар 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm border-0 h-100">
+                    <img src="../goods/img1.jpg" class="card-img-top" alt="Товар 1"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Тапочки для медитации с защитой от бытовой магии</h5>
+                        <p class="card-text flex-grow-1">Войлочные тапочки с вышитыми рунами, которые защищают
+                            от потерянных ключей и "мы же договоривались на другую сумму" от клиентов</p>
+
+                        <button class="btn btn-link p-0 text-decoration-none shadow-none fw-bold" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#specs1">
+                            <i class="bi bi-info-circle me-2"></i>Технические характеристики
+                        </button>
+                        <div id="specs1" class="collapse">
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Материал</strong> Овечья шерсть, слезы недоделанных проектов
+                                </li>
+                                <li><strong>Размер</strong> Универсальный (подстраиваются под энергетику)
+                                </li>
+                                <li><strong>Действие</strong> Нейтрализует 87% домашнего негатива</li>
+                            </ul>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price-tag">Цена 1800 ₽</span>
+                            <button class="btn outline-purple btn-sm cart-toggle">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Товар 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm border-0 h-100">
+                    <img src="../goods/img2.jpg" class="card-img-top" alt="Товар 2"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Свеча "Экзорцизм соседа с перфоратором"</h5>
+                        <p class="card-text flex-grow-1">Свеча с ароматом ванили и юридической грамотности.
+                            Горение сопровождается тишиной — перфоратор замолкает на время горения</p>
+
+                        <button class="btn btn-link p-0 text-decoration-none shadow-none fw-bold" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#specs2">
+                            <i class="bi bi-info-circle me-2"></i>Технические характеристики
+                        </button>
+                        <div id="specs2" class="collapse">
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Материал:</strong> Соевый воск, травы из ближайшего палисадника
+                                </li>
+                                <li><strong>Время горения:</strong> До 14 часов</li>
+                                <li><strong>Эффект:</strong> Сосед вспоминает про бутылку прокисшего компота
+                                    в шкафу</li>
+                            </ul>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price-tag">Цена 950 ₽</span>
+                            <button class="btn outline-purple btn-sm cart-toggle">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm border-0 h-100">
+                    <img src="../goods/img3.jpg" class="card-img-top" alt="Товар 3"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Кристалл для чистки кэша</h5>
+                        <p class="card-text flex-grow-1">Аметистовый кристалл, заряженный на очищение энергетики
+                            и оперативной памяти. Поставь рядом с монитором — и баги будут реже появляться.</p>
+
+                        <button class="btn btn-link p-0 text-decoration-none shadow-none fw-bold" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#specs3">
+                            <i class="bi bi-info-circle me-2"></i>Технические характеристики
+                        </button>
+                        <div id="specs3" class="collapse">
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Материал:</strong> Натуральный аметист + USB-подсветка</li>
+                                <li><strong>Размер:</strong> 8×5×3 см</li>
+                                <li><strong>Совместимость:</strong> Chrome, Safari, душа</li>
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price-tag">Цена 2500 ₽</span>
+                            <button class="btn outline-purple btn-sm cart-toggle">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col">
+                <h1 class="display-5 fw-bold">Эзотерические услуги</h1>
+                <p class="lead text-muted-color">Сделаем вашу жизнь проще, а жизнь ваших врагов - сложнее</p>
+            </div>
+        </div>
+
+        <!-- Сетка товаров -->
+        <div class="row g-4">
+            <!-- Товар 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm border-0 h-100">
+                    <img src="../goods/img4.jpeg" class="card-img-top" alt="Товар 4"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Ритуал "Призыв стабильного интернета"</h5>
+                        <p class="card-text flex-grow-1"> Когда Wi-Fi падает перед демо, а мобильная сеть "вне зоны
+                            доступа".
+                            Проводим ритуал с кристаллами и перезагрузкой роутера.</p>
+
+                        <button class="btn btn-link p-0 text-decoration-none shadow-none fw-bold" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#specs4">
+                            <i class="bi bi-info-circle me-2"></i>Технические характеристики
+                        </button>
+                        <div id="specs4" class="collapse">
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Время:</strong> 30 минут (или пока не заработает)</li>
+                                <li><strong>Что входит:</strong> Настройка энергетики роутера + заговор на
+                                    стабильность</li>
+                                <li><strong>Гарантия:</strong> 80% (остальное на совести провайдера)</li>
+                            </ul>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price-tag">Цена 2000 ₽</span>
+                            <button class="btn outline-purple btn-sm cart-toggle">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm border-0 h-100">
+                    <img src="../goods/img5.jpeg" class="card-img-top" alt="Товар 5"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Изгнание Пиковой Дамы</h5>
+                        <p class="card-text flex-grow-1">Жуткая дева иелькает в зеркалах с тех пор как вы призвали её в
+                            6 лет?
+                            Мы поможем наконец решить эту проблему</p>
+
+                        <button class="btn btn-link p-0 text-decoration-none shadow-none fw-bold" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#specs5">
+                            <i class="bi bi-info-circle me-2"></i>Технические характеристики
+                        </button>
+                        <div id="specs5" class="collapse">
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Время:</strong> 40 минут</li>
+                                <li><strong>В качестве подготовки:</strong> Помойте зеркала наконец</li>
+                                <li><strong>Важно:</strong> При смерти экзорциста во время обряда предоплату
+                                    не возвращаем</li>
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price-tag">Цена 4000 ₽</span>
+                            <button class="btn outline-purple btn-sm cart-toggle">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm border-0 h-100">
+                    <img src="../goods/img6.jpg" class="card-img-top" alt="Товар 6"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Гадание и сплетни</h5>
+                        <p class="card-text flex-grow-1">Хочется просто узнать что тебя ждёт и спокойно поболтать?
+                            Наши специаличты вам помогут</p>
+
+                        <button class="btn btn-link p-0 text-decoration-none shadow-none fw-bold" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#specs6">
+                            <i class="bi bi-info-circle me-2"></i>Технические характеристики
+                        </button>
+                        <div id="specs6" class="collapse">
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Тип гадания:</strong> Утром выпьем с вами кофе и погадаем на
+                                    гуще, ночью на таро и зеркалах</li>
+                                <li><strong>Время:</strong> Два часа. Дополнительное время оплачивается
+                                    отдельно</li>
+                                <li><strong>Результат:</strong> Подъём морального духа на 98% в случае
+                                    хорошего предсказания</li>
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price-tag">Цена 6000 ₽</span>
+                            <button class="btn outline-purple btn-sm cart-toggle">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Здесь будет твой общий footer -->
+    <footer>
+        <div class="d-flex align-items-center gap-2">
+            <span class="ms-2">&copy; 2025 TarotVibe</span>
+            <span class="mx-auto">Компания не несёт ответственности за действия клиентов вне консультаций</span>
+            <span class="ms-auto me-2"><a href="pages/contacts.html">Контакты</a></span>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.cart-toggle').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const wasInCart = this.classList.contains('in-cart');
+
+                if (wasInCart) {
+                    this.innerHTML = 'В корзину';
+                    this.classList.remove('in-cart', 'bg-primary-color', 'text-light');
+                    this.classList.add('outline-purple');
+                } else {
+                    this.innerHTML = '✓ В корзине';
+                    this.classList.remove('outline-purple');
+                    this.classList.add('in-cart', 'bg-primary-color', 'text-light');
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
